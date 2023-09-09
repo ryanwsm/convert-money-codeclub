@@ -5,54 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet" />
     <title>DevClub-ConvertMoney</title>
 </head>
 
 <body>
-    <img src="./assets/convert-logo.gif" alt="devclub-convert-money-logo" />
+    <header>
+
+        <img src="./assets/convert-logo.gif" alt="devclub-convert-money-logo" id="logo-img" />
+
+    </header>
+
     <main>
-        <label>
-            Converter <b>de:</b>
 
-            <select>
-                <option>R$ Real Brasileiro</option>
-            </select>
-        </label>
+        <div id="menu">
 
-        <label>
-            Converter <b>para:</b>
+            <label class="labels">
+                Converter <b>de:</b>
 
-            <select>
-                <option>US$ Dólar Americado</option>
-                <option>€ Euro</option>
-            </select>
-        </label>
+                <select class="real-select">
+                    <option>R$ Real Brasileiro</option>
+                </select>
+            </label>
 
-        <label>
-            <b>Para:</b>
+            <label class="labels">
+                Converter <b>para:</b>
 
-            <input placeholder="R$ 1.000,00" />
+                <select class="currency-select">
+                    <option>US$ Dólar Americano</option>
+                    <option>€ Euro</option>
+                </select>
+            </label>
 
-        </label>
+            <label class="labels">
+                <b>Valor:</b>
 
-        <button>Converter</button>
+                <input class="amount-input" placeholder="R$ 1.000,00" />
 
-        <section>
+            </label>
+
+            <button id="convert-button">Converter</button>
+
+        </div>
+
+        <section id="low-section">
 
             <div>
-                <img src="./assets/real.png" alt="real-logo" />
+                <img src="./assets/real.png" alt="real-logo" id="real-logo" />
 
-                <p>Real Brasileiro</p>
-                <p>R$ 0,00</p>
+                <p class="real-name">Real Brasileiro</p>
+                <p class="real-amount">R$ 0,00</p>
             </div>
 
-            <img src="./assets/arrow.png" alt="arrow" />
+            <img src="./assets/arrow.png" alt="arrow" id="arrow-logo"/>
 
             <div>
-                <img src="./assets/dolar.png" alt="dolar-logo" />
-                
-                <p>Dólar Americano</p>
-                <p>US$ 0.00</p>
+                <img src="./assets/dolar.png" alt="dolar-logo" id="currency-logo" />
+
+                <p class="currency-name">Dólar Americano</p>
+                <p class="real-amount">US$ 0.00</p>
             </div>
 
         </section>
@@ -60,5 +74,7 @@
     </main>
 
 </body>
+
+<script src="./script.js"></script>
 
 </html>
