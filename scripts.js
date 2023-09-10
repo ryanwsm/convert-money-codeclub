@@ -1,26 +1,40 @@
+const convertButton = document.querySelector('#convert-button')
+const currencySelect = document.querySelector('.currency-select')
 
-const convertButton = document.querySelector("#convert-button")
+function clickButton() {
+    const inputValue = document.querySelector('.amount-input').value
+    const realAmount = document.querySelector('.real-amount')
+    const currencyAmount = document.querySelector('.currency-amount')
+    const currencyLogo = document.querySelector('#currency-logo')
+    const currencyName = document.querySelector('.currency-name')
+    
+    const dolarToday = 5.2
+    const euroToday = 6
 
-function convertValues() {
-    const input = document.querySelector(".amount-input").value
-    const realAmount = document.querySelector(".real-amount")
-    const currencyAmount = document.querySelector(".currency-amount")
+    if (currencySelect.value == 'dolar') {
+        currencyAmount.innerHTML = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        }).format(inputValue / dolarToday)
+        currencyName.innerHTML = 'Dólar Americano'
+        currencyLogo.src = './assets/dolar.png'
+    }
 
-    const dolar = 5.20
+    if (currencySelect.value == 'euro') {
+        currencyAmount.innerHTML = new Intl.NumberFormat('de-DE', {
+            style: 'currency',
+            currency: 'EUR'
+        }).format(inputValue / euroToday)
+        currencyName.innerHTML = 'Euro'
+        currencyLogo.src = './assets/euro.png'
+    }
 
-    const convert = input / dolar
-
-    realAmount.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    }).format(input)
-    currencyAmount.innerHTML = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD"
-    }).format(convert)
-    console.log(convert)
+    realAmount.innerHTML = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(inputValue)
 }
 
-convertButton.addEventListener("click", convertValues)
 
-//console.log(convertButton)
+convertButton.addEventListener('click', clickButton)
+currencySelect.addEventListener('change', clickButton)
