@@ -10,6 +10,8 @@ function clickButton() {
     
     const dolarToday = 5.2
     const euroToday = 6
+    const poundToday = 6.2
+    const btc = 129000
 
     if (currencySelect.value == 'dolar') {
         currencyAmount.innerHTML = new Intl.NumberFormat('en-US', {
@@ -27,6 +29,25 @@ function clickButton() {
         }).format(inputValue / euroToday)
         currencyName.innerHTML = 'Euro'
         currencyLogo.src = './assets/euro.png'
+    }
+
+    if (currencySelect.value == 'libra') {
+        currencyAmount.innerHTML = new Intl.NumberFormat('en-UK', {
+            style: 'currency',
+            currency: 'GBP'
+        }).format(inputValue / poundToday)
+        currencyName.innerHTML = 'Libra Esterlina'
+        currencyLogo.src = './assets/libra.png'
+    }
+
+    if (currencySelect.value == 'bitcoin') {
+        currencyAmount.innerHTML = new Intl.NumberFormat('en-UK', {
+            style: 'currency',
+            currency: 'BTC',
+            maximumFractionDigits: 8
+        }).format(inputValue / btc)
+        currencyName.innerHTML = 'Bitcoin'
+        currencyLogo.src = './assets/btc.png'
     }
 
     realAmount.innerHTML = new Intl.NumberFormat('pt-BR', {
